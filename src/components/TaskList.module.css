@@ -1,0 +1,30 @@
+.task{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 1em;
+}
+
+.details {
+    text-align: left;
+}
+
+.details h4{
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.actions i{
+    margin-right: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #282c34;
+    color: #ffffff;
+    padding: .4em;
+    transition: .5s;
+}
+
+.actions i:hover{
+    color: #61dafb;
+}

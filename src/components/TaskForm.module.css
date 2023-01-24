@@ -1,8 +1,9 @@
-.form{
+.form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    margin: 0 auto;
+    background-color: #dceef35e;
+    padding: 40px;
 }
 
 .form input{
