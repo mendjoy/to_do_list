@@ -1,4 +1,4 @@
-import React from 'react';
+import styles from "./App.module.css";
 import './App.css';
 
 //components
@@ -10,8 +10,11 @@ function App() {
     <div className="App">
 
       <Header/>
-    
-      <h1>Conteudo...</h1>
+      <main className={styles.main}>
+          <h1>Conteudo...</h1>
+      </main>
+     
+     
      
      <Footer/>
       
