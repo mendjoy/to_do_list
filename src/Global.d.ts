@@ -1,0 +1,1 @@
+declare module "*module.css"  //Permiter que o ts aceite o module css
