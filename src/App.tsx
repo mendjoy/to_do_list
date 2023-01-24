@@ -19,6 +19,7 @@ import { useState } from "react";
 function App() {
 
   const [taskList, setTaskList] = useState<ITask[]>([]);
+  const [taskToUpdate, setTaskToUpdate] = useState<ITask | null>(null);
 
   const deleteTask = (id:number) => {
     setTaskList(
@@ -38,22 +39,51 @@ function App() {
     }
   };
 
-  const editTask = ():void => {
-    hideOrShowModal(true)
+  const editTask = (task:ITask):void => {
+    hideOrShowModal(true);
+    setTaskToUpdate(task);
+  };
 
+  const updateTask = (id:number, title:string, difficulty:number) => {
+
+    const updatedTask: ITask = {id, title, difficulty};
+
+    const updatedItems = taskList.map((task) => {
+      return task.id === updatedTask.id ? updatedTask : task
+    })
+
+    setTaskList(updatedItems)
+
+    hideOrShowModal(false)
+    
   }
 
   return (
     <div className="App">
-      <Modal children={<TaskForm btnText="Editar Tarefa" taskList={taskList}/>}/>
+      <Modal 
+        children={<TaskForm btnText="Editar Tarefa" 
+        taskList={taskList}
+        task={taskToUpdate}
+        handleUpdate={updateTask}
+        />}
+       
+        />
       <Header/>
       <main className={styles.main}>
           <div className={styles.task_form}>
-            <TaskForm btnText="Criar Tarefa" taskList={taskList} setTaskList={setTaskList}/>
+            <TaskForm 
+              btnText="Criar Tarefa" 
+              taskList={taskList} 
+              setTaskList={setTaskList} 
+              
+            />
           </div>
           <div className={styles.task_list}>
             <h2>Suas Tarefas:</h2>
-            <TaskList taskList={taskList} handleDelete={deleteTask} handleEdit={editTask}/>
+            <TaskList 
+              taskList={taskList} 
+              handleDelete={deleteTask} 
+              handleEdit={editTask}/>
           </div>
       </main>
      

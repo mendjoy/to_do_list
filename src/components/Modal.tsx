@@ -2,6 +2,8 @@ import React from "react";
 //CSS
 import styles from "./Modal.module.css";
 
+
+
 interface Props {
     children: React.ReactNode;
 }
@@ -16,7 +18,7 @@ const Modal = ({children}: Props) => {
 
   return (
     <div id="modal" className="hide">
-        <div className={styles.fade} onClick={closeModal}>x</div>
+        <div className={styles.fade} onClick={closeModal}></div>
         <div className={styles.modal}>
             {children}
         </div>
